@@ -68,7 +68,9 @@
                                             ]
                                         },
                                         'properties': {
-                                            'title': 'Causeway Bay'
+                                            'title': 'Causeway Bay',
+                                            'description':
+                                                '<strong>Causeway Bay</strong><p>Causeway Bay is the retail heart in Hong Kong with NSB between 14 and 18.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4">Clip here for the VR view</a></p>'
                                         }
                                     },
                                     {
@@ -78,7 +80,9 @@
                                             'coordinates': [114.158, 22.282]
                                         },
                                         'properties': {
-                                            'title': 'Central'
+                                            'title': 'Central',
+                                            'description':
+                                                '<strong>Central</strong><p>Central is the central business district with NSB between 13.5 and 18, the highest in Hong Kong.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4">Clip here for the VR view</a></p>'
                                         }
                                     }
                                 ]
@@ -101,16 +105,43 @@
                                 'text-anchor': 'top'
                             }
                         });
+                        // When a click event occurs on a feature in the places layer, open a popup at the
+                        // location of the feature, with description HTML from its properties.
+                        map.on('click', 'points', function (e) {
+                            var coordinates = e.features[0].geometry.coordinates.slice();
+                            var description = e.features[0].properties.description;
+
+                            // Ensure that if the map is zoomed out such that multiple
+                            // copies of the feature are visible, the popup appears
+                            // over the copy being pointed to.
+                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                            }
+
+                            new mapboxgl.Popup()
+                                .setLngLat(coordinates)
+                                .setHTML(description)
+                                .addTo(map);
+                        });
+
+                        // Change the cursor to a pointer when the mouse is over the places layer.
+                        map.on('mouseenter', 'points', function () {
+                            map.getCanvas().style.cursor = 'pointer';
+                        });
+
+                        // Change it back to a pointer when it leaves.
+                        map.on('mouseleave', 'points', function () {
+                            map.getCanvas().style.cursor = '';
+                        });
                     }
                 );
             });
         </script>
     </div>
     <div style="float:left;" id="image">
-        <iframe allowFullScreen="true" width="800px" height="600px" 
-        allow="accelerometer; magnetometer; gyroscope";
-        style="margin:0px auto; border:0 none; max-width:880px;border-radius:8px;"
-        src="https://panoraven.com/en/embed/3lEUCL40z4"></iframe>
+        <iframe allowFullScreen="true" width="800px" height="600px" allow="accelerometer; magnetometer; gyroscope" ;
+            style="margin:0px auto; border:0 none; max-width:880px;border-radius:8px;"
+            src="https://panoraven.com/en/embed/3lEUCL40z4"></iframe>
     </div>
     <div style="clear:both;"></div>
 </body>
