@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>360 Image Viewer - HKU Light Pollution Research</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 600px;
+            width: 800px;
+        }
+
+        #image {
+            position: absolute;
+            left: 800px;
+            top: 0;
+            height: 600px;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="float:left;" id="map">
+        <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic3RvcDY4IiwiYSI6ImNqY2tqdmY5ZjN1c2kzM28zN3pncTkxc3kifQ.5O5ns1xgihc9i6XvQxCFJQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/light-v10',
+                center: [114.2, 22.3],
+                zoom: 12
+            });
+
+            map.on('load', function () {
+                // Add an image to use as a custom marker
+                map.loadImage(
+                    'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+                    function (error, image) {
+                        if (error) throw error;
+                        map.addImage('custom-marker', image);
+                        // Add a GeoJSON source with 2 points
+                        map.addSource('points', {
+                            'type': 'geojson',
+                            'data': {
+                                'type': 'FeatureCollection',
+                                'features': [
+                                    {
+                                        'type': 'Feature',
+                                        'geometry': {
+                                            'type': 'Point',
+                                            'coordinates': [
+                                                114.184,
+                                                22.280
+                                            ]
+                                        },
+                                        'properties': {
+                                            'title': 'Causeway Bay'
+                                        }
+                                    },
+                                    {
+                                        'type': 'Feature',
+                                        'geometry': {
+                                            'type': 'Point',
+                                            'coordinates': [114.158, 22.282]
+                                        },
+                                        'properties': {
+                                            'title': 'Central'
+                                        }
+                                    }
+                                ]
+                            }
+                        });
+                        // Add a symbol layer
+                        map.addLayer({
+                            'id': 'points',
+                            'type': 'symbol',
+                            'source': 'points',
+                            'layout': {
+                                'icon-image': 'custom-marker',
+                                // get the title name from the source's "title" property
+                                'text-field': ['get', 'title'],
+                                'text-font': [
+                                    'Open Sans Semibold',
+                                    'Arial Unicode MS Bold'
+                                ],
+                                'text-offset': [0, 1.25],
+                                'text-anchor': 'top'
+                            }
+                        });
+                    }
+                );
+            });
+        </script>
+    </div>
+    <div style="float:left;" id="image">
+        <iframe allowFullScreen="true" width="800px" height="600px" 
+        allow="accelerometer; magnetometer; gyroscope";
+        style="margin:0px auto; border:0 none; max-width:880px;border-radius:8px;"
+        src="https://panoraven.com/en/embed/3lEUCL40z4"></iframe>
+    </div>
+    <div style="clear:both;"></div>
+</body>
+
+
+
+</html>
