@@ -1,10 +1,18 @@
 <!DOCTYPE HTML>
+<link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="bootstrap.min.js"></script>
+<script src="jquery.min.js"></script>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>360 Image Viewer - HKU Light Pollution Research</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
     <style>
@@ -15,10 +23,10 @@
 
         #map {
             position: absolute;
-            top: 0;
+            top: 60px;
             left: 0;
-            height: 600px;
-            width: 800px;
+            height: 800px;
+            width: 100%;
         }
 
         #image {
@@ -32,6 +40,50 @@
 </head>
 
 <body>
+    <div>
+        <nav class="navbar navbar-expand-sm   navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://nightsky.physics.hku.hk/news.php" target="_blank">HKU Light Pollution Research</a>
+                    </li>
+                    <li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Co-Organizers
+                        </a>
+                        <div class="dropdown-menu sm-menu">
+                            <a class="dropdown-item" href="http://www.hko.gov.hk/" target="_blank">Hong Kong Observatory</a>
+                            <a class="dropdown-item" href="#" target="_blank">Hong Kong Space Museum</a>
+                            <a class="dropdown-item" href="#" target="_blank">Hong Kong Astronomical Society</a>
+                            <a class="dropdown-item" href="#" target="_blank">Ho Koon Nature Education cum Astronomical Centre</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://globeatnight-network.org/index.html" target="_blank">Globe at
+                            Night - Sky Brightness Monitoring Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">External Links</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="social-part">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div style="float:left;" id="map">
         <script>
             // TO MAKE THE MAP APPEAR YOU MUST
@@ -44,7 +96,6 @@
                 center: [114.2, 22.3],
                 zoom: 12
             });
-
             map.on('load', function () {
                 // Add an image to use as a custom marker
                 map.loadImage(
@@ -70,7 +121,7 @@
                                         'properties': {
                                             'title': 'Causeway Bay',
                                             'description':
-                                                '<strong>Causeway Bay</strong><p>Causeway Bay is the retail heart in Hong Kong with NSB between 14 and 18.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4">Clip here for the VR view</a></p>'
+                                                '<strong>Causeway Bay</strong><p>Causeway Bay is the retail heart in Hong Kong with NSB between 14 and 18.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4" target="_blank">Clip here for the VR view</a></p>'
                                         }
                                     },
                                     {
@@ -82,7 +133,7 @@
                                         'properties': {
                                             'title': 'Central',
                                             'description':
-                                                '<strong>Central</strong><p>Central is the central business district with NSB between 13.5 and 18, the highest in Hong Kong.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4">Clip here for the VR view</a></p>'
+                                                '<strong>Central</strong><p>Central is the central business district with NSB between 13.5 and 18, the highest in Hong Kong.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4" target="_blank">Clip here for the VR view</a></p>'
                                         }
                                     }
                                 ]
@@ -138,12 +189,16 @@
             });
         </script>
     </div>
-    <div style="float:left;" id="image">
-        <iframe allowFullScreen="true" width="800px" height="600px" allow="accelerometer; magnetometer; gyroscope" ;
-            style="margin:0px auto; border:0 none; max-width:880px;border-radius:8px;"
-            src="https://panoraven.com/en/embed/3lEUCL40z4"></iframe>
-    </div>
     <div style="clear:both;"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 
