@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+  <!DOCTYPE HTML>
+  <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="bootstrap.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <html lang="en">
+  
+  <head>
+      <meta charset="utf-8">
+      <title>360 Image Viewer - HKU Light Pollution Research</title>
+      <!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="bootstrap.min.css">
+      <link rel="stylesheet" href="font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+      <link rel="stylesheet" href="pannellum.css" />
+      <script type="text/javascript" src="pannellum.js"></script>
+      <style>
+          body {
+              margin: 0;
+              padding: 0;
+          }
+  
+          #header99 {
+              position: absolute;
+              top: 0.5%;
+              left: 25px;
+              height: 7%;
+              width: 100%;
+          }
+  
+          #navbar99 {
+              position: absolute;
+              top: 7%;
+              left: 0;
+              height: 14%;
+              width: 100%;
+          }
+  
+          #panorama {
+              position: absolute;
+              top: 13%;
+              left: 0;
+              height: 800px;
+              width: 100%;
+          }
+      </style>
+  </head>
+  
+  <body style="background-color:black;">
+      <div id="header99">
+          <div class="logo left"><a href="#"><img src="logo.png"
+                      alt="香港大學光污染研究 Light Pollution Research at The University of Hong Kong" /></a>
+          </div>
+      </div>
+      <div id="navbar99">
+          <nav class="navbar navbar-expand-sm   navbar-dark bg-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                  aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link" href="index.html">360 Image Viewer</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="http://nightsky.physics.hku.hk/news.php" target="_blank">HKU Light
+                              Pollution Research</a>
+                      </li>
+                      <li class="nav-item dropdown dmenu">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                              Co-Organizers
+                          </a>
+                          <div class="dropdown-menu sm-menu">
+                              <a class="dropdown-item" href="http://www.hko.gov.hk/" target="_blank">Hong Kong
+                                  Observatory</a>
+                              <a class="dropdown-item" href="#" target="_blank">Hong Kong Space Museum</a>
+                              <a class="dropdown-item" href="#" target="_blank">Hong Kong Astronomical Society</a>
+                              <a class="dropdown-item" href="#" target="_blank">Ho Koon Nature Education cum
+                                  Astronomical Centre</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="http://globeatnight-network.org/index.html" target="_blank">Globe
+                              at Night - Sky Brightness Monitoring Network</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="contactus.html">Contact Us</a>
+                      </li>
+                  </ul>
+                  <div class="social-part">
+                      <i class="fab fa-facebook" aria-hidden="true"></i>
+                      <i class="fab fa-twitter" aria-hidden="true"></i>
+                      <i class="fab fa-instagram" aria-hidden="true"></i>
+                  </div>
+              </div>
+          </nav>
+      </div>
+      <div style="float:left;" id="map">
+        <div id="panorama"></div>
+        <script>
+          pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "img/Output_Q360_20210519_215722_000000.JPG",
+            "autoLoad": true
+          });
+        </script>
+      </div>
+      <div style="clear:both;"></div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+  </body>
+  
+  
+  
+  </html>
+  
+
+
+</html>
