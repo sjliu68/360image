@@ -111,18 +111,18 @@
             });
             map.on('load', function () {
  map.addSource("myImageSource", {"type": "image",
-    "url": "https://sjliu.me/360image/test2.jpg",
+    "url": "https://sjliu.me/360image/test3.png",
      "coordinates": [
-        [114.1448,22.2915],
-        [114.1687,22.2915],
-        [114.1687,22.2776],
-        [114.1448,22.2776]
+        [114.1473,22.2889],
+        [114.1656,22.2889],
+        [114.1656,22.2777],
+        [114.1473,22.2777]
      ]});
 map.addLayer({
   "id": "overlay",
   "source": "myImageSource",
   "type": "raster",
-  "paint": {"raster-opacity": 0.5}
+  "paint": {"raster-opacity": 0.7}
 });
                 // Add an image to use as a custom marker
                 // Add a GeoJSON source with 2 points
