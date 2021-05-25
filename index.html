@@ -110,6 +110,20 @@
                 zoom: 15
             });
             map.on('load', function () {
+ map.addSource("myImageSource", {"type": "image",
+    "url": "https://sjliu.me/360image/test2.jpg",
+     "coordinates": [
+        [114.1448,22.2915],
+        [114.1687,22.2915],
+        [114.1687,22.2776],
+        [114.1448,22.2776]
+     ]});
+map.addLayer({
+  "id": "overlay",
+  "source": "myImageSource",
+  "type": "raster",
+  "paint": {"raster-opacity": 0.85}
+});
                 // Add an image to use as a custom marker
                 // Add a GeoJSON source with 2 points
                 map.addSource('points', {
@@ -126,20 +140,6 @@
                     },
                     'filter': ['==', '$type', 'Point']
                 });
- map.addSource("myImageSource", {"type": "image",
-    "url": "https://sjliu.me/360image/test2.jpg",
-     "coordinates": [
-        [114.1448,22.2915],
-        [114.1687,22.2915],
-        [114.1687,22.2776],
-        [114.1448,22.2776]
-     ]});
-map.addLayer({
-  "id": "overlay",
-  "source": "myImageSource",
-  "type": "raster",
-  "paint": {"raster-opacity": 0.85}
-});
             });
             // When a click event occurs on a feature in the places layer, open a popup at the
             // location of the feature, with description HTML from its properties.
