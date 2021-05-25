@@ -122,7 +122,7 @@ map.addLayer({
   "id": "overlay",
   "source": "myImageSource",
   "type": "raster",
-  "paint": {"raster-opacity": 0.85}
+  "paint": {"raster-opacity": 0.5}
 });
                 // Add an image to use as a custom marker
                 // Add a GeoJSON source with 2 points
@@ -136,7 +136,7 @@ map.addLayer({
                     'source': 'points',
                     'paint': {
                         'circle-radius': 6,
-                        'circle-color': '#4B0082'
+                        'circle-color': '#00FF00'
                     },
                     'filter': ['==', '$type', 'Point']
                 });
