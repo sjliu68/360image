@@ -1,0 +1,27 @@
+{
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'geometry': {
+'type': 'Point',
+'coordinates': [114.184,22.280]
+},
+'properties': {
+'title': 'Causeway Bay',
+'description': '<strong>Causeway Bay</strong><p>Causeway Bay is the retail heart in Hong Kong with NSB between 14 and 18.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4" target="_blank">Clip here for the VR view</a></p>'
+}
+},
+{
+'type': 'Feature',
+'geometry': {
+'type': 'Point',
+'coordinates': [114.158, 22.282]
+},
+'properties': {
+'title': 'Central',
+'description': '<strong>Central</strong><p>Central is the central business district with NSB between 13.5 and 18, the highest in Hong Kong.</p><p><a href="https://panoraven.com/en/embed/3lEUCL40z4" target="_blank">Clip here for the VR view</a></p>'
+}
+}
+]
+}
