@@ -118,7 +118,13 @@
         [114.1790,22.2727],
         [114.1334,22.2727]
      ]});
- map.addSource("mac", {"type": "image",
+map.addLayer({
+  "id": "overlay",
+  "source": "hk1",
+  "type": "raster",
+  "paint": {"raster-opacity": 0.7}
+});
+map.addSource("mac", {"type": "image",
     "url": "https://sjliu.me/360image/mac_v20210623c.png",
      "coordinates": [
         [113.4998,22.2349],
@@ -128,7 +134,7 @@
      ]});
 map.addLayer({
   "id": "overlay",
-  "source": "myImageSource",
+  "source": "mac",
   "type": "raster",
   "paint": {"raster-opacity": 0.7}
 });
