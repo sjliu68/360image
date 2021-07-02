@@ -163,7 +163,14 @@ map.addLayer({
                     'type': 'circle',
                     'source': 'points',
                     'paint': {
-                        'circle-radius': 8,
+                        'circle-radius': {
+                            'base': 5,
+                            'stops': [
+                                [16, 10]
+                                [18, 20]
+                                [20, 40]
+                            ]
+                        },
                         'circle-color': '#00FF00'
                     },
                     'filter': ['==', '$type', 'Point']
