@@ -1,2 +1,2 @@
 # 360image
-Show 360 images with a clickable map
+Show panoramic 360 photos with a clickable map
