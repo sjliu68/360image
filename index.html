@@ -186,6 +186,10 @@ map.addLayer({
             map.on('click', 'points', function (e) {
                 var coordinates = e.features[0].geometry.coordinates.slice();
                 var description = e.features[0].properties.description;
+								var paraim = description.split('?')[1].split('=');
+								paraim[1] = paraim[1].split('\&')[0];
+								paraim[2] = paraim[2].split('\&')[0];
+								var imlink = "https://sjliu.me/360image/impreview/pre"+paraim[3]+'_'+paraim[2]+'_'+paraim[1]+".JPG";
 
                 // Ensure that if the map is zoomed out such that multiple
                 // copies of the feature are visible, the popup appears
