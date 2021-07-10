@@ -156,7 +156,7 @@ map.addLayer({
                 // Add a GeoJSON source with 2 points
                 map.addSource('points', {
                     'type': 'geojson',
-                    'data': 'https://sjliu.me/360image/selectedt20210709c.geojson'
+                    'data': 'https://sjliu.me/360image/selectedt20210710b.geojson'
                 });
                 map.addLayer({
                     'id': 'points',
@@ -194,10 +194,15 @@ map.addLayer({
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                 }
 
-                new mapboxgl.Popup()
-                    .setLngLat(coordinates)
-                    .setHTML(description)
-                    .addTo(map);
+								var popup = new mapboxgl.Popup({
+									closeButton: true,
+									closeOnClick: true
+								});
+
+								popup
+									.setLngLat(coordinates)
+									.setHTML("<p><a href=\"" + description + "\" target=\"_blank\" style=\"color: DarkBlue\">Click here for the VR view</a></p> <p><a href=\"" + description + "\" target=\"_blank\"><img alt=\"preview\" src=\"" +imlink+ "\" width=\"220\" height=\"110\"></a></p>")
+									.addTo(map);
             });
             // Change the cursor to a pointer when the mouse is over the places layer.
             map.on('mouseenter', 'points', function () {
