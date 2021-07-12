@@ -20,6 +20,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          114.170624,
+          22.321722
+        ]
+      },
+      "properties": {
+        "title": "figure3",
+        "description": "view.html?p1=194147&p2=20201106&p3=THETA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           114.029722,
           22.495278
         ]
