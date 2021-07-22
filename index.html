@@ -206,7 +206,8 @@ map.addLayer({
 
 								popup
 									.setLngLat(coordinates)
-									.setHTML("<p><a href=\"" + description + "\" target=\"_blank\" style=\"color: DarkBlue\">Click here for the VR view</a></p> <p><a href=\"" + description + "\" target=\"_blank\"><img alt=\"preview\" src=\"" +imlink+ "\" width=\"220\" height=\"110\"></a></p>")
+                                    .setHTML("<p><a href=\"" + description + "\" target=\"_blank\" style=\"color: DarkBlue\">Click here for the VR view</a></p> <p><a href=\"" + description + "\" target=\"_blank\"><img alt=\"preview\" src=\"" +imlink+ "\"></a></p>")
+									//.setHTML("<p><a href=\"" + description + "\" target=\"_blank\" style=\"color: DarkBlue\">Click here for the VR view</a></p> <p><a href=\"" + description + "\" target=\"_blank\"><img alt=\"preview\" src=\"" +imlink+ "\" width=\"220\" height=\"110\"></a></p>")
 									.addTo(map);
             });
             // Change the cursor to a pointer when the mouse is over the places layer.
