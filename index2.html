@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<link href="js/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>360 Photo Viewer - HKU Light Pollution Research</title>
+    <!-- <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="font-awesome.min.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header99 {
+            position: absolute;
+            top: 0.5%;
+            left: 25px;
+            height: 7%;
+            width: 100%;
+        }
+
+        #navbar99 {
+            position: absolute;
+            top: 7%;
+            left: 0;
+            height: 14%;
+            width: 100%;
+        }
+
+        #map {
+            position: absolute;
+            top: 13%;
+            left: 0;
+            height: 86%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body style="background-color:black;">
+    <div id="header99">
+        <div class="logo left"><a href="#"><img src="logo.png"
+                    alt="香港大學光污染研究 Light Pollution Research at The University of Hong Kong" /></a>
+        </div>
+    </div>
+    <div id="navbar99">
+        <nav class="navbar navbar-expand-sm   navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">360 Image Viewer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://nightsky.physics.hku.hk/news.php" target="_blank">HKU Light
+                            Pollution Research</a>
+                    </li>
+                    <li class="nav-item dropdown dmenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Co-Organizers
+                        </a>
+                        <div class="dropdown-menu sm-menu">
+                            <a class="dropdown-item" href="http://www.hko.gov.hk/" target="_blank">Hong Kong
+                                Observatory</a>
+                            <a class="dropdown-item" href="#" target="_blank">Hong Kong Space Museum</a>
+                            <a class="dropdown-item" href="#" target="_blank">Hong Kong Astronomical Society</a>
+                            <a class="dropdown-item" href="#" target="_blank">Ho Koon Nature Education cum
+                                Astronomical Centre</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://globeatnight-network.org/index.html" target="_blank">Globe
+                            at Night - Sky Brightness Monitoring Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="social-part">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="float:left;" id="map">
+        <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic3RvcDY4IiwiYSI6ImNqY2tqdmY5ZjN1c2kzM28zN3pncTkxc3kifQ.5O5ns1xgihc9i6XvQxCFJQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                //style: 'mapbox://styles/mapbox/dark-v10',
+		style: 'mapbox://styles/sjliu/cktk8jxth0mse17tkjrwvoe87',
+                center: [114.17, 22.2850],
+                zoom: 11
+            });
+            map.on('load', function () {
+map.addSource("mac1", {"type": "image",
+    "url": "https://sjliu.me/360image/mac_v20210623d.png",
+     "coordinates": [
+        [113.4998,22.2349],
+        [113.6436,22.2349],
+        [113.6436,22.1659],
+        [113.4998,22.1659]
+     ]});
+map.addLayer({
+  "id": "mac1a",
+  "source": "mac1",
+  "type": "raster",
+  "paint": {"raster-opacity": 0.7}
+});
+map.addSource("yuenlong", {"type": "image",
+    "url": "https://sjliu.me/360image/yuenlong_v20210623a.png",
+     "coordinates": [
+        [113.9388,22.4833],
+        [114.1143,22.4833],
+        [114.1143,22.3955],
+        [113.9388,22.3955]
+     ]});
+map.addLayer({
+  "id": "yuenlong1a",
+  "source": "yuenlong",
+  "type": "raster",
+  "paint": {"raster-opacity": 0.7}
+});
+                // Add an image to use as a custom marker
+                // Add a GeoJSON source with 2 points
+                map.addSource('points', {
+                    'type': 'geojson',
+                    'data': 'https://sjliu.me/360image/selectedt20210710b.geojson'
+                });
+                map.addLayer({
+                    'id': 'points',
+                    'type': 'circle',
+                    'source': 'points',
+                    'paint': {
+                        'circle-radius': {
+                            'base': 5,
+                            'stops': [
+                                [1, 5],
+                                [11, 5],
+                                [15, 6],
+                                [16, 10],
+                                [17, 14],
+                                [18, 18],
+                                [19, 22],
+                                [20, 26]
+                            ]
+                        },
+                        'circle-color': '#00FF00'
+                    },
+                    'filter': ['==', '$type', 'Point']
+                });
+            });
+            // When a click event occurs on a feature in the places layer, open a popup at the
+            // location of the feature, with description HTML from its properties.
+            map.on('click', 'points', function (e) {
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var description = e.features[0].properties.description;
+								var paraim = description.split('?')[1].split('=');
+								paraim[1] = paraim[1].split('\&')[0];
+								paraim[2] = paraim[2].split('\&')[0];
+								//var imlink = "https://sjliu.me/360image/impreview/pre"+paraim[3]+'_'+paraim[2]+'_'+paraim[1]+".JPG";
+                                //var imlink = "https://sjliu.me/360image/histraw2/hist_"+paraim[3]+'_'+paraim[2]+'_'+paraim[1]+"_000000.JPG";
+								var imlink = "https://sjliu.me/360image/histrawmiddle/hist_"+paraim[3]+'_'+paraim[2]+'_'+paraim[1]+"_000000.JPG";
+
+                // Ensure that if the map is zoomed out such that multiple
+                // copies of the feature are visible, the popup appears
+                // over the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+
+								var popup = new mapboxgl.Popup({
+									closeButton: true,
+									closeOnClick: true
+								});
+
+								popup
+									.setLngLat(coordinates)
+                                    .setHTML("<p><a href=\"" + description + "\" target=\"_blank\" style=\"color: DarkBlue\">Click here for the VR view</a></p> <p><a href=\"" + description + "\" target=\"_blank\"><img alt=\"preview\" src=\"" +imlink+ "\" width=\"300\"></a></p>")
+									//.setHTML("<p><a href=\"" + description + "\" target=\"_blank\" style=\"color: DarkBlue\">Click here for the VR view</a></p> <p><a href=\"" + description + "\" target=\"_blank\"><img alt=\"preview\" src=\"" +imlink+ "\" width=\"220\" height=\"110\"></a></p>")
+									.addTo(map);
+            });
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseenter', 'points', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'points', function () {
+                map.getCanvas().style.cursor = '';
+            });
+        </script>
+    </div>
+    <div style="clear:both;"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+
+
+</html>
